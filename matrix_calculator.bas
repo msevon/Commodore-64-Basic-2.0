@@ -1,102 +1,102 @@
-10 print chr$(147)
-20 print "***** matrix calculator *****"
-30 print "1=add  2=subtract  3=multiply  0=quit"
+10 PRINT CHR$(147)
+20 PRINT "***** MATRIX CALCULATOR *****"
+30 PRINT "1=ADD  2=SUBTRACT  3=MULTIPLY  0=QUIT"
 
-40 dim a(10,10),b(10,10),res(10,10)
-50 input "select operation ";o
-60 if o=0 then end
-70 input "number of rows for matrix a: ";r1
-80 input "number of columns for matrix a: ";c1
-90 input "number of rows for matrix b: ";r2
-100 input "number of columns for matrix b: ";c2
+40 DIM A(10,10),B(10,10),RES(10,10)
+50 INPUT "SELECT OPERATION ";O
+60 IF O=0 THEN END
+70 INPUT "NUMBER OF ROWS FOR MATRIX A: ";R1
+80 INPUT "NUMBER OF COLUMNS FOR MATRIX A: ";C1
+90 INPUT "NUMBER OF ROWS FOR MATRIX B: ";R2
+100 INPUT "NUMBER OF COLUMNS FOR MATRIX B: ";C2
 
-110 if o=3 and c1<>r2 then print "error: columns of a must equal rows of b" : goto 50
+110 IF O=3 AND C1<>R2 THEN PRINT "ERROR: COLUMNS OF A MUST EQUAL ROWS OF B" : GOTO 50
 
-120 print "enter matrix a:"
-130 for i=1 to r1
-140   for j=1 to c1
-150     print "a(";i;",";j;") ";
-160     input a(i,j)
-170   next j
-180 next i
+120 PRINT "ENTER MATRIX A:"
+130 FOR I=1 TO R1
+140   FOR J=1 TO C1
+150     PRINT "A(";I;",";J;") ";
+160     INPUT A(I,J)
+170   NEXT J
+180 NEXT I
 
-190 print "enter matrix b:"
-200 for i=1 to r2
-210   for j=1 to c2
-220     print "b(";i;",";j;") ";
-230     input b(i,j)
-240   next j
-250 next i
+190 PRINT "ENTER MATRIX B:"
+200 FOR I=1 TO R2
+210   FOR J=1 TO C2
+220     PRINT "B(";I;",";J;") ";
+230     INPUT B(I,J)
+240   NEXT J
+250 NEXT I
 
-260 print
-270 print "matrix a:"
-280 gosub 910
-290 print
-300 print "matrix b:"
-310 gosub 920
+260 PRINT
+270 PRINT "MATRIX A:"
+280 GOSUB 910
+290 PRINT
+300 PRINT "MATRIX B:"
+310 GOSUB 920
 
-320 if o=1 then gosub 500
-330 if o=2 then gosub 600
-340 if o=3 then gosub 700
-350 goto 50
+320 IF O=1 THEN GOSUB 500
+330 IF O=2 THEN GOSUB 600
+340 IF O=3 THEN GOSUB 700
+350 GOTO 50
 
-500 rem --- addition ---
-510 for i=1 to r1
-520   for j=1 to c1
-530     res(i,j)=a(i,j)+b(i,j)
-540   next j
-550 next i
-560 print : print "result of addition:"
-570 gosub 930
-580 return
+500 REM --- ADDITION ---
+510 FOR I=1 TO R1
+520   FOR J=1 TO C1
+530     RES(I,J)=A(I,J)+B(I,J)
+540   NEXT J
+550 NEXT I
+560 PRINT : PRINT "RESULT OF ADDITION:"
+570 GOSUB 930
+580 RETURN
 
-600 rem --- subtraction ---
-610 for i=1 to r1
-620   for j=1 to c1
-630     res(i,j)=a(i,j)-b(i,j)
-640   next j
-650 next i
-660 print : print "result of subtraction:"
-670 gosub 930
-680 return
+600 REM --- SUBTRACTION ---
+610 FOR I=1 TO R1
+620   FOR J=1 TO C1
+630     RES(I,J)=A(I,J)-B(I,J)
+640   NEXT J
+650 NEXT I
+660 PRINT : PRINT "RESULT OF SUBTRACTION:"
+670 GOSUB 930
+680 RETURN
 
-700 rem --- multiplication ---
-710 for i=1 to r1
-720   for j=1 to c2
-730     sum=0
-740     for k=1 to c1
-750       sum=sum+a(i,k)*b(k,j)
-760     next k
-770     res(i,j)=sum
-780   next j
-790 next i
-800 print : print "result of multiplication:"
-810 gosub 930
-820 return
+700 REM --- MULTIPLICATION ---
+710 FOR I=1 TO R1
+720   FOR J=1 TO C2
+730     SUM=0
+740     FOR K=1 TO C1
+750       SUM=SUM+A(I,K)*B(K,J)
+760     NEXT K
+770     RES(I,J)=SUM
+780   NEXT J
+790 NEXT I
+800 PRINT : PRINT "RESULT OF MULTIPLICATION:"
+810 GOSUB 930
+820 RETURN
 
-910 rem --- display matrix a ---
-911 for i=1 to r1
-912   for j=1 to c1
-913     print a(i,j);" ";
-914   next j
-915   print
-916 next i
-917 return
+910 REM --- DISPLAY MATRIX A ---
+911 FOR I=1 TO R1
+912   FOR J=1 TO C1
+913     PRINT A(I,J);" ";
+914   NEXT J
+915   PRINT
+916 NEXT I
+917 RETURN
 
-920 rem --- display matrix b ---
-921 for i=1 to r2
-922   for j=1 to c2
-923     print b(i,j);" ";
-924   next j
-925   print
-926 next i
-927 return
+920 REM --- DISPLAY MATRIX B ---
+921 FOR I=1 TO R2
+922   FOR J=1 TO C2
+923     PRINT B(I,J);" ";
+924   NEXT J
+925   PRINT
+926 NEXT I
+927 RETURN
 
-930 rem --- display result matrix ---
-931 for i=1 to r1
-932   for j=1 to c2
-933     print res(i,j);" ";
-934   next j
-935   print
-936 next i
-937 return
+930 REM --- DISPLAY RESULT MATRIX ---
+931 FOR I=1 TO R1
+932   FOR J=1 TO C2
+933     PRINT RES(I,J);" ";
+934   NEXT J
+935   PRINT
+936 NEXT I
+937 RETURN
