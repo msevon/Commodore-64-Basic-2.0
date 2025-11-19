@@ -4,6 +4,9 @@ This repository contains simple programs written in Commodore 64 BASIC 2.0.
 
 ## Programs
 
+### dice_roller.bas
+A dice rolling program that allows you to roll up to 21 dice, each with a customizable number of sides (4-100, even numbers only). The program prompts for the number of dice and the number of sides for each die, then displays the result of each roll.
+
 ### disco_screen.bas
 A visual effect program that makes the screen flash in random colors, i.e. disco lights.
 
